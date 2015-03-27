@@ -6,7 +6,7 @@
  * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
-
+namespace Application;
 return array(
     'router' => array(
         'routes' => array(
@@ -60,6 +60,9 @@ return array(
         'aliases' => array(
             'translator' => 'MvcTranslator',
         ),
+        'invokables' => array(
+            'Application\Model\Listener\TestEventSubscriber' => 'Application\Model\Listener\TestEventSubscriber'
+        ),    		
     ),
     'translator' => array(
         'locale' => 'en_US',
@@ -99,4 +102,21 @@ return array(
             ),
         ),
     ),
+    
+    //doctrine module configuration
+	'doctrine' => array(
+	    'driver' => array(
+	        __NAMESPACE__ . '_driver' => array(
+	            'class' => 'Doctrine\ODM\MongoDB\Mapping\Driver\AnnotationDriver',
+	            'cache' => 'array',
+	            'paths' => array(__DIR__ . '/../src/' . __NAMESPACE__ . '/Model/Entity'),
+	        ),
+	        'odm_default' => array(
+	            'drivers' => array(
+	                __NAMESPACE__ . '\Model\Entity' => __NAMESPACE__ . '_driver'
+	            ),
+	        ),
+	    ),
+	),    
+    
 );

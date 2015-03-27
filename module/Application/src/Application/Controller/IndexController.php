@@ -98,7 +98,7 @@ class IndexController extends AbstractActionController
 	   $result = $query->getSingleResult();
 	   
 	   //Paginator
-	   $query = $this->dm->createQueryBuilder('Project')->getQuery();
+	   $query = $this->dm->createQueryBuilder('Application\Model\Entity\Project')->getQuery();
 	   $cursor = $query->execute();
 	   $adapter = new ODMPaginatorAdapter($cursor);
 	   $paginator = new Paginator($adapter);

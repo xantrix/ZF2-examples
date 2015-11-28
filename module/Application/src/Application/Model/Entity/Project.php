@@ -1,10 +1,11 @@
 <?php
+
 namespace Application\Model\Entity;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 
-/** 
- * @ODM\Document 
+/**
+ * @ODM\Document
  * @ODM\HasLifecycleCallbacks
  * */
 class Project
@@ -15,17 +16,29 @@ class Project
     /** @ODM\String */
     private $name;
 
-    public function __construct($name) { $this->name = $name; }
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
 
-    public function getId() { return $this->id; }
+    public function getId()
+    {
+        return $this->id;
+    }
 
-    public function getName() { return $this->name; }
-    public function setName($name) { $this->name = $name; }
-    
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
     /** @ODM\PreFlush */
     public function preFlush()
     {
-        $t = 'changed from preFlush callback!';
-    }    
-    
+        // 'changed from preFlush callback!';
+    }
 }

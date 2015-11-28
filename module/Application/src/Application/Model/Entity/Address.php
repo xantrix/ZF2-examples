@@ -1,4 +1,5 @@
 <?php
+
 namespace Application\Model\Entity;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
@@ -18,15 +19,43 @@ class Address
     /** @ODM\String */
     private $zipcode;
 
-    public function getAddress() { return $this->address; }
-    public function setAddress($address) { $this->address = $address; }
+    public function getAddress()
+    {
+        return $this->address;
+    }
 
-    public function getCity() { return $this->city; }
-    public function setCity($city) { $this->city = $city; }
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
 
-    public function getState() { return $this->state; }
-    public function setState($state) { $this->state = $state; }
+    public function getCity()
+    {
+        return $this->city;
+    }
 
-    public function getZipcode() { return $this->zipcode; }
-    public function setZipcode($zipcode) { $this->zipcode = $zipcode; }
+    public function setCity($city)
+    {
+        $this->city = $city;
+    }
+
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    public function setState($state)
+    {
+        $this->state = $state;
+    }
+
+    public function getZipcode()
+    {
+        return $this->zipcode;
+    }
+
+    public function setZipcode($zipcode)
+    {
+        $this->zipcode = $zipcode;
+    }
 }

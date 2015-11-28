@@ -1,9 +1,10 @@
 <?php
+
 namespace Application\Model\Listener;
 
 class TestEventSubscriber implements \Doctrine\Common\EventSubscriber
 {
-    const preFoo = 'preFoo';
+    const PREFOO = 'preFoo';
 
     public $preFooInvoked = false;
 
@@ -16,7 +17,7 @@ class TestEventSubscriber implements \Doctrine\Common\EventSubscriber
     {
         return array(self::preFoo);
     }
-    
+
     /**
      * http://stackoverflow.com/questions/10730377/doctrine-listener-versus-subscriber
      * @param \Doctrine\ODM\MongoDB\Event\PreFlushEventArgs $eventArgs
@@ -27,5 +28,4 @@ class TestEventSubscriber implements \Doctrine\Common\EventSubscriber
         $uow = $dm->getUnitOfWork();
         // do something
     }
-    
 }

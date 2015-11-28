@@ -1,4 +1,5 @@
 <?php
+
 namespace Application\Model\Filter;
 
 use Doctrine\ODM\MongoDB\Mapping\ClassMetaData;
@@ -9,7 +10,7 @@ class MyLocaleFilter extends BsonFilter
     public function addFilterCriteria(ClassMetadata $targetDocument)
     {
         // Check if the entity implements the LocalAware interface
-        if ( ! $targetDocument->reflClass->implementsInterface('LocaleAware')) {
+        if (!$targetDocument->reflClass->implementsInterface('LocaleAware')) {
             return array();
         }
 
